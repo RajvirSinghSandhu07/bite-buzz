@@ -33,7 +33,7 @@ const MENU = [
   { name: "McCain Smileys", price: 50, unit: "plate", image: "images/smileys.jpg", emoji: "😊",
     description: "Crispy, smiley-shaped potato bites.", available: true, trending: true },
 
-  { name: "Veg Burger", price: 80, unit: "plate", image: "images/veg-burger.jpg", emoji: "🍔",
+  { name: "Veg Burger", price: 100, unit: "plate", image: "images/veg-burger.jpg", emoji: "🍔",
     description: "Loaded, juicy and fresh off the tawa.", available: true, trending: true },
 
   { name: "French Fries (Normal)", price: 30, unit: "pouch", image: "images/fries-normal.jpg", emoji: "🍟",
@@ -48,7 +48,7 @@ const MENU = [
   { name: "Sandwich (Half)", price: 45, unit: "", image: "images/sandwich-half.jpg", emoji: "🥪",
     description: "A lighter bite of the same goodness.", available: true, trending: false },
 
-  { name: "Mini Samosa (2 pieces)", price: 30, unit: "plate", image: "images/mini-samosa.jpg", emoji: "🔺",
+  { name: "Mini Samosa (3 pieces)", price: 40, unit: "plate", image: "images/mini-samosa.jpg", emoji: "🔺",
     description: "Two crispy mini samosas, hot and spiced.", available: true, trending: false },
 
   { name: "Mirinda", price: 15, unit: "glass", image: "images/mirinda.jpg", emoji: "🧃",
