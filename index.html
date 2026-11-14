@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bite Buzz | Good Food. Good Mood.</title>
+  <meta name="description" content="Bite Buzz street food: smileys, burgers, fries, sandwiches and more.">
+  <meta name="theme-color" content="#E63B2E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="hero">
+    <img id="logo" class="hero-logo" alt="Bite Buzz logo" width="420" height="459">
+    <h1 id="tagline"></h1>
+    <p id="subtitle" class="hero-sub"></p>
+    <a href="#menu" class="btn">Explore Menu</a>
+  </header>
+
+  <section id="trending" class="section">
+    <h2 id="trendingTitle"></h2>
+    <div id="trendingList" class="trend-row"></div>
+  </section>
+
+  <section id="menu" class="section">
+    <h2 id="menuTitle"></h2>
+    <div id="menuList" class="grid"></div>
+  </section>
+
+  <section id="feedback" class="section feedback">
+    <h2 id="feedbackTitle"></h2>
+    <p id="feedbackText"></p>
+    <div id="stars" class="stars" role="radiogroup" aria-label="Rating"></div>
+    <textarea id="comment" rows="3" placeholder="Anything you'd like to add? (optional)"></textarea>
+    <button id="submitFeedback" class="btn" type="button">Send feedback</button>
+    <p id="thanks" class="thanks" hidden></p>
+  </section>
+
+  <footer class="footer">
+    <img id="footLogo" alt="Bite Buzz" width="96" height="96">
+    <strong id="footName"></strong>
+    <span id="footTag"></span>
+    <small id="footNote"></small>
+  </footer>
+
+  <script src="menuData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

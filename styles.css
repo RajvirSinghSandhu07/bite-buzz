@@ -1,0 +1,133 @@
+:root {
+  --cream: #FFF6E5;
+  --red: #E63B2E;
+  --orange: #FF8A1F;
+  --yellow: #FFC93C;
+  --brown: #3B1F14;
+  --brown-soft: #7A5646;
+  --white: #FFFDF8;
+  --radius: 26px;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+h1, h2, h3, .btn, .price { font-family: "Fredoka", system-ui, sans-serif; }
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: calc(env(safe-area-inset-top) + 28px) 20px 64px;
+  background:
+    radial-gradient(circle at 15% 10%, var(--yellow) 0 90px, transparent 91px),
+    radial-gradient(circle at 92% 30%, var(--orange) 0 70px, transparent 71px),
+    var(--cream);
+  border-radius: 0 0 48px 48px;
+  animation: pop .7s cubic-bezier(.2, 1.3, .4, 1) both;
+}
+@keyframes pop { from { opacity: 0; transform: scale(.92) translateY(14px); } }
+.hero-logo { width: min(88vw, 420px); height: auto; margin: 0 auto 18px; display: block; border-radius: 30px; box-shadow: 0 14px 34px rgba(59,31,20,.18); }
+.logo-fallback { font: 700 3.4rem/1 "Fredoka"; color: var(--red); margin: 40px 0 16px; }
+.hero h1 { font-size: clamp(2rem, 9vw, 3.4rem); font-weight: 700; line-height: 1.05; color: var(--red); }
+.hero-sub { margin: 10px 0 26px; font-size: 1.1rem; color: var(--brown-soft); }
+
+.btn {
+  display: inline-block; border: 0; cursor: pointer; text-decoration: none;
+  background: var(--red); color: #fff; font-size: 1.1rem; font-weight: 600;
+  padding: 14px 30px; border-radius: 999px;
+  box-shadow: 0 6px 0 #B02419;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #B02419; }
+.btn:focus-visible, .star:focus-visible { outline: 3px solid var(--brown); outline-offset: 3px; }
+
+/* SECTIONS */
+.section { padding: 48px 18px 8px; max-width: 1000px; margin: 0 auto; }
+.section h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 18px; }
+#trending { background: none; }
+
+/* CARDS */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+.trend-row {
+  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin: 0 -18px; padding: 4px 18px 18px; scrollbar-width: none;
+}
+.trend-row::-webkit-scrollbar { display: none; }
+.trend-row .card { flex: 0 0 68%; max-width: 280px; scroll-snap-align: start; }
+
+.card {
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 8px 22px rgba(59, 31, 20, .10);
+  display: flex; flex-direction: column;
+}
+.photo {
+  position: relative; aspect-ratio: 1; background: linear-gradient(135deg, var(--yellow), var(--orange));
+  display: grid; place-items: center; overflow: hidden;
+}
+.photo .emoji { font-size: 3.4rem; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.badge {
+  position: absolute; top: 10px; left: 10px; background: var(--red); color: #fff;
+  font: 600 .78rem "Fredoka"; padding: 5px 11px; border-radius: 999px;
+  animation: wiggle 2.4s ease-in-out infinite;
+}
+@keyframes wiggle { 0%, 88%, 100% { transform: rotate(0); } 92% { transform: rotate(-6deg); } 96% { transform: rotate(5deg); } }
+
+.info { padding: 12px 14px 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.info h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.2; }
+.desc { font-size: .85rem; color: var(--brown-soft); flex: 1; }
+.meta { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; gap: 6px; flex-wrap: wrap; }
+.price { font-size: 1.15rem; font-weight: 700; color: var(--red); }
+.status { font-size: .72rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+.status.on { background: #DDF3D2; color: #25661B; }
+.status.off { background: #EADDD7; color: var(--brown-soft); }
+
+.is-sold .photo img, .is-sold .photo .emoji { filter: grayscale(1); opacity: .55; }
+.is-sold .price { color: var(--brown-soft); text-decoration: line-through; }
+.sold {
+  position: absolute; background: var(--brown); color: var(--yellow);
+  font: 700 1.05rem "Fredoka"; letter-spacing: .06em; padding: 7px 16px; border-radius: 10px;
+  transform: rotate(-10deg);
+}
+
+/* FEEDBACK */
+.feedback {
+  margin-top: 48px; padding: 34px 20px 38px; text-align: center; max-width: 560px;
+  background: var(--yellow); border-radius: 34px; width: calc(100% - 36px);
+}
+.feedback p { color: var(--brown); margin-bottom: 14px; }
+.stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 14px; }
+.star {
+  background: none; border: 0; cursor: pointer; font-size: 2.7rem; line-height: 1; padding: 4px;
+  color: rgba(59, 31, 20, .25); transition: transform .15s, color .15s;
+}
+.star.on { color: var(--red); transform: scale(1.12); }
+textarea {
+  width: 100%; border: 2px solid transparent; border-radius: 18px; padding: 14px;
+  font: 1rem "DM Sans"; color: var(--brown); background: var(--white); resize: vertical; margin-bottom: 18px;
+}
+textarea:focus { outline: none; border-color: var(--red); }
+.thanks { margin-top: 16px; font-weight: 700; }
+
+/* FOOTER */
+.footer {
+  margin-top: 56px; padding: 36px 20px calc(36px + env(safe-area-inset-bottom));
+  background: var(--brown); color: var(--cream); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  border-radius: 40px 40px 0 0;
+}
+.footer img { width: 96px; height: 96px; object-fit: contain; background: var(--cream); border-radius: 24px; padding: 6px; margin-bottom: 8px; }
+.footer strong { font: 700 1.5rem "Fredoka"; color: var(--yellow); }
+.footer small { margin-top: 10px; opacity: .8; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
